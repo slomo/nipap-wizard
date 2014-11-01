@@ -46,6 +46,10 @@ def configure_extensions(app):
     # flask-migrate
     migrate.init_app(app, db)
 
+    # jinja-i18n with null-translations
+    app.jinja_env.add_extension('jinja2.ext.i18n')
+    app.jinja_env.install_null_translations()
+
 
 def configure_error_handlers(app):
     @app.errorhandler(403)

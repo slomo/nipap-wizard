@@ -1,14 +1,14 @@
 {% extends "layout.html" %}
 {% block body %}
       <div class="row">
-        <h2 class="col-md-12">Email verschickt!</h2>
+        <h2 class="col-md-12">{{_('Email verschickt!')}}</h2>
         <div class="col-md-12">
           <div class="row">
             <p class="col-md-12">
-              Dein Antrag ist erfolgreich eingegangen. An die von dir angegebene
+              {{_('Dein Antrag ist erfolgreich eingegangen. An die von dir angegebene
               Email-Adresse wurde eine Email zur Verifizierung / Aktivierung
               geschickt. Bitte schau in deinen Posteingang und
-              klick auf den Link zur Aktivierung!
+              klick auf den Link zur Aktivierung!')}}
             </p>
           </div>
 
@@ -20,9 +20,9 @@
 
           <div class="row">
             <p class="col-md-12">
-              Es kann unter Umständen bis zu 10 Minuten dauern bis die Email
+              {{_('Es kann unter Umständen bis zu 10 Minuten dauern bis die Email
               verschickt wird. Wenn du also einen leeren Posteingang vorfindest,
-              versuch es einfach in ein paar Minuten nochmal!
+              versuch es einfach in ein paar Minuten nochmal!')}}
             </p>
           </div>
         </div>

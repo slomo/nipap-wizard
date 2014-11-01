@@ -1,4 +1,4 @@
-{% macro render_bootstrap_field(field, placeholder, help) %}
+#{% macro render_bootstrap_field(field, placeholder, help) %}
 
 <div class="form-group {% if field.errors %} error {% endif %}">
     <label class="col-md-2 control-label">{{ field.label }}</label>
@@ -17,7 +17,7 @@
 {% extends "layout.html" %}
 {% block body %}
       <div class="row">
-        <h2 class="col-md-12">Standortdaten</h2>
+        <h2 class="col-md-12">{{_("Standortdaten")}}</h2>
 
         <div class="row flexible">
           <p class="col-md-4 form-router text-center">
@@ -25,18 +25,16 @@
             {{router.name}}
           </p>
           <form class="form-horizontal col-md-8" role="form" action="{{url_for('.wizard_form', router_id = "/".join(router.id)) }}" method="post">
-
             {{ form.csrf_token }}
-            {{ render_bootstrap_field(form.hostname, "Spitzname des Routers", "Ein kurzer und eindeutiger Name für deinen Router (z.B. <em>funkenpumpe</em> oder <em>HermannStr42_VH</em>).") }}
-            {{ render_bootstrap_field(form.email, "Kontaktadresse", "Notwendig, damit wir dir die Router-Konfiguration und Firmware per Email zuschicken können.") }}
-            {{ render_bootstrap_field(form.location_type, help="Je nach Standort benutzen mehr oder weniger viele Menschen zur selben Zeit den Freifunk-Router. Cafés und Kneipen haben mehr gleichzeitige Benutzer_innen und brauchen so mehr IP-Adressen als ein Router zu Hause.") }}
-            {{ render_bootstrap_field(form.captcha, "Hauptstadt Deutschlands?", "Wird benötigt um Spam-Bots auszuschließen.") }}
-
+            {{ render_bootstrap_field(form.hostname, _("Spitzname des Routers"), _("Ein kurzer und eindeutiger Name für deinen Router (z.B. <em>funkenpumpe</em> oder <em>HermannStr42_VH</em>).")) }}
+            {{ render_bootstrap_field(form.email,  _("Kontaktadresse", "Notwendig, damit wir dir die Router-Konfiguration und Firmware per Email zuschicken können.")) }}
+            {{ render_bootstrap_field(form.location_type, help= _("Je nach Standort benutzen mehr oder weniger viele Menschen zur selben Zeit den Freifunk-Router. Cafés und Kneipen haben mehr gleichzeitige Benutzer_innen und brauchen so mehr IP-Adressen als ein Router zu Hause.")) }}
+            {{ render_bootstrap_field(form.captcha,  _("Hauptstadt Deutschlands?"),  _("Wird benötigt um Spam-Bots auszuschließen.")) }}
             <div class="form-group">
               <div class="col-sm-offset-2 col-sm-10">
                 <a href="{{url_for('.wizard_select_router')}}" class="btn
-                  btn-default">zurück</a>
-                <button type="submit" class="btn btn-default">Anfordern</button>
+                  btn-default">{{_('zurück')}}</a>
+                <button type="submit" class="btn btn-default">{{_("Anfordern")}}</button>
               </div>
             </div>
           </form>

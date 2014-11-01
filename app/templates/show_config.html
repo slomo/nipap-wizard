@@ -1,19 +1,19 @@
 {% extends "layout.html" %}
 {% block body %}
       <div class="row">
-        <h2 class="col-md-12">Konfiguration</h2>
+        <h2 class="col-md-12">{{_('Konfiguration')}}</h2>
         <div class="col-md-12">
           <p>
-            Im Folgenden findest du eine Auflistung der Konfigurationsparameter für deinen Router: 
+            {{_('Im Folgenden findest du eine Auflistung der Konfigurationsparameter für deinen Router:')}}
           </p>
         </div>
 
         <div class="col-md-12">
           <dl class="dl-horizontal col-md-8">
-            <dt>Router</dt>
+            <dt>{{_('Router')}}</dt>
             <dd>{{router.name}}</dd>
 
-            <dt>Firmware</dt>
+            <dt>{{_('Firmware')}}</dt>
             <dd>
             {% for name,url in router.firmwares.items() %}
             <a href="{{url}}">{{name}}.bin</a>
@@ -23,14 +23,14 @@
             <dt>Mesh-IPs</dt>
             <dd>
             {% for ip in ips['mesh'] %}
-            <code>{{ip}}</code> 
+            <code>{{ip}}</code>
             {% endfor %}
             </dd>
 
             <dt>DHCP-Network</dt>
             <dd>
             {% for ip in ips['hna'] %}
-            <code>{{ip}}</code> 
+            <code>{{ip}}</code>
             {% endfor %}
             </dd>
           </dl>
@@ -42,18 +42,18 @@
       </div>
 
       <div class="row">
-        <h2 class="col-md-12">nächsten Schritte</h2>
+        <h2 class="col-md-12">{{_('nächsten Schritte')}}</h2>
       </div>
 
       <div class="row">
         <p class="col-md-12">
-          Mit Hilfe der Konfigurationsparameter kannst du nun deinen Router
+          {{_('Mit Hilfe der Konfigurationsparameter kannst du nun deinen Router
           <i>flashen</i>. Das heißt das Freifunk-Betriebssystem installieren
-          und konfigurieren. Hierzu folgst du am besten den Anleitungen:
+          und konfigurieren. Hierzu folgst du am besten den Anleitungen:'}}
         </p>
         <ul class="col-md-l col-md-offset-1">
-          <li><a href="http://berlin.freifunk.net/participate/howto/flash">Router flashen</a></li>
-          <li><a href="http://berlin.freifunk.net/participate/howto/config">Router konfigurieren</a></li>
+          <li><a href="http://berlin.freifunk.net/participate/howto/flash">{{_('Router flashen')}}</a></li>
+          <li><a href="http://berlin.freifunk.net/participate/howto/config">{{_('Router konfigurieren')}}</a></li>
         </ul>
       </div>
     </div>
